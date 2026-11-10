@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --azul: #1e3a8a;
+    --azul-claro: #3b82f6;
+    --naranja: #f97316;
+    --fondo: #f1f5f9;
+    --blanco: #ffffff;
+    --texto: #1f2937;
+    --gris: #94a3b8;
+    --verde: #16a34a;
+    --rojo: #dc2626;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado {
+    background-color: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 24px 16px;
+    border-bottom: 5px solid var(--naranja);
+}
+
+.encabezado h1 {
+    font-size: 2rem;
+}
+
+.encabezado p {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.contenedor {
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.tarjeta {
+    background-color: var(--blanco);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta h2 {
+    color: var(--azul);
+    margin-bottom: 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input,
+select {
+    padding: 10px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--azul-claro);
+}
+
+button {
+    cursor: pointer;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-principal {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--naranja);
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.boton-principal:hover {
+    background-color: #ea580c;
+    transform: translateY(-2px);
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.filtro {
+    flex: 1;
+    padding: 10px;
+    background-color: #e2e8f0;
+    color: var(--texto);
+}
+
+.filtro:hover {
+    background-color: var(--azul-claro);
+    color: var(--blanco);
+}
+
+.filtro.activo {
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
+#contador {
+    font-size: 0.9rem;
+    color: var(--gris);
+    margin-bottom: 12px;
+}
+
+#lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.actividad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px;
+    border-left: 6px solid var(--naranja);
+    background-color: #f8fafc;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+}
+
+.actividad:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.actividad.completada {
+    border-left-color: var(--verde);
+    opacity: 0.7;
+}
+
+.actividad.completada .titulo {
+    text-decoration: line-through;
+}
+
+.actividad.oculta {
+    display: none;
+}
+
+.titulo {
+    display: block;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.detalle {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--gris);
+    margin-top: 4px;
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+.boton-completar,
+.boton-eliminar {
+    flex: 1;
+    padding: 8px 12px;
+    color: var(--blanco);
+}
+
+.boton-completar {
+    background-color: var(--verde);
+}
+
+.boton-completar:hover {
+    background-color: #15803d;
+}
+
+.boton-eliminar {
+    background-color: var(--rojo);
+}
+
+.boton-eliminar:hover {
+    background-color: #b91c1c;
+}
+
+#mensajeVacio {
+    text-align: center;
+    color: var(--gris);
+    padding: 20px 0;
+}
+
+.pie {
+    background-color: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 14px;
+    font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+    .contenedor {
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+        padding: 32px 16px;
+    }
+
+    .actividad {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .acciones {
+        flex: none;
+    }
+
+    .boton-completar,
+    .boton-eliminar {
+        flex: none;
+    }
+}

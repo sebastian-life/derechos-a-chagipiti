@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeTracker - Instituto Life</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>LifeTracker</h1>
+        <p>Instituto Life · Organiza tus tareas y hábitos</p>
+    </header>
+
+    <main class="contenedor">
+
+        <section class="tarjeta">
+            <h2>Nueva actividad</h2>
+
+            <form id="formulario">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ej: Estudiar JavaScript" minlength="3" required>
+
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="Tarea">Tarea</option>
+                    <option value="Hábito">Hábito</option>
+                </select>
+
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" name="fecha" required>
+
+                <button type="submit" class="boton-principal">Agregar</button>
+            </form>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Mis actividades</h2>
+
+            <div class="filtros">
+                <button class="filtro activo" data-filtro="todas">Todas</button>
+                <button class="filtro" data-filtro="pendientes">Pendientes</button>
+                <button class="filtro" data-filtro="completadas">Completadas</button>
+            </div>
+
+            <p id="contador">0 pendientes</p>
+
+            <ul id="lista"></ul>
+
+            <p id="mensajeVacio">No hay actividades para mostrar.</p>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 2026 Instituto Life · Proyecto Integrador</p>
+    </footer>
+
+    <script src="js/java.js"></script>
+</body>
+</html>
